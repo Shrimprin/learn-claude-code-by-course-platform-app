@@ -560,7 +560,7 @@ export function GoogleAuthButton() {
 
 - 作業を完了したら、必ず対応するチケット（`docs/XXX-*.md`）内のTODOリストにチェック `[x]` を入れること
 - 部分的に完了した場合も、完了した項目にはチェックを入れる
-- チケット一覧（`docs/000-ticket-index.md`）の進捗状況も更新する
+- チケット一覧（`docs/00_ticket-index.md`）の進捗状況も更新する
   - 完了: ✅
   - 進行中: 🔄
   - 未着手: （マークなし）
