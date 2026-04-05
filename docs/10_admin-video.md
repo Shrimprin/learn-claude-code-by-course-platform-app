@@ -8,36 +8,35 @@
 
 ### データ操作
 
-- [ ] `src/lib/admin/videos.ts` に以下の関数を作成
-  - [ ] `getVideosBySection(sectionId)` 動画一覧取得
-  - [ ] `createVideo(sectionId, data)` 動画作成
-  - [ ] `updateVideo(id, data)` 動画更新
-  - [ ] `deleteVideo(id)` 動画削除
-  - [ ] `reorderVideos(sectionId, orderedIds)` 並び替え
+- [x] `lib/admin/videos.ts` に以下の関数を作成
+  - [x] `getAdminVideos(sectionId)` 動画一覧取得
+  - [x] `createVideo(sectionId, data)` 動画作成
+  - [x] `updateVideo(id, data)` 動画更新
+  - [x] `deleteVideo(id)` 動画削除
+  - [x] `reorderVideos(orderedIds)` 並び替え
 
 ### Server Actions
 
-- [ ] `src/app/actions/admin/videos.ts` に Server Actions を作成
-  - [ ] `createVideoAction(sectionId, formData)`
-  - [ ] `updateVideoAction(id, formData)`
-  - [ ] `deleteVideoAction(id)`
-  - [ ] `reorderVideosAction(sectionId, orderedIds)`
+- [x] `app/actions/admin/videos.ts` に Server Actions を作成
+  - [x] `createVideoAction(sectionId, courseId, formData)`
+  - [x] `updateVideoAction(id, sectionId, courseId, formData)`
+  - [x] `deleteVideoAction(id, sectionId, courseId)`
+  - [x] `reorderVideosAction(sectionId, courseId, orderedIds)`
 
 ### コンポーネント
 
-- [ ] `src/components/Admin/VideoForm.tsx` 動画作成・編集フォームを作成（Client Component）
-  - [ ] タイトル入力
-  - [ ] YouTube URL 入力
-  - [ ] 再生時間（秒）入力
-  - [ ] 無料動画フラグ（チェックボックス）
-- [ ] `src/components/Admin/VideoList.tsx` ドラッグ&ドロップで並び替え可能なリストを作成（Client Component）
-  - [ ] 無料フラグの表示
-  - [ ] YouTube URL のプレビューリンク
+- [x] `components/Admin/VideoList.tsx` ドラッグ&ドロップで並び替え可能なリストを作成（Client Component）
+  - [x] 無料フラグの表示
+  - [x] YouTube URL のプレビューリンク
+  - [x] 削除ボタン（確認ダイアログ付き）
 
 ### ページ
 
-- [ ] `src/app/admin/courses/[id]/sections/[sectionId]/videos/page.tsx` 動画管理ページを実装
+- [x] `app/admin/courses/[id]/sections/[sectionId]/videos/page.tsx` 動画管理ページを実装
+  - [x] 動画一覧（ドラッグ並び替え）
+  - [x] インラインの新規追加フォーム（タイトル・URL・再生時間・無料フラグ）
 
 ### バリデーション
 
-- [ ] YouTube URL の形式チェック（`youtube.com/watch?v=` または `youtu.be/` 形式）
+- [x] YouTube URL の形式チェック（`extractYouTubeId` で検証）
+- [x] `lib/youtube.ts` に共通ユーティリティとして分離（Client/Server 両対応）

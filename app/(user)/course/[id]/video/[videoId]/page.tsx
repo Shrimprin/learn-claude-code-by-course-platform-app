@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
-import { getVideoById, getVideosByCourseId, extractYouTubeId } from "@/lib/videos";
+import { getVideoById, getVideosByCourseId } from "@/lib/videos";
+import { extractYouTubeId } from "@/lib/youtube";
 import { getCourseById } from "@/lib/courses";
 import { getUserProgressByCourse } from "@/lib/progress";
 import { createClient } from "@/lib/supabase/server";
