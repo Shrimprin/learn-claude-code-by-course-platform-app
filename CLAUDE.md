@@ -106,8 +106,6 @@ src/
 ```sql
 CREATE TABLE profiles (
   id UUID PRIMARY KEY REFERENCES auth.users(id) ON DELETE CASCADE,
-  email VARCHAR(255),
-  full_name VARCHAR(255),
   avatar_url VARCHAR(500),
   role VARCHAR(50) DEFAULT 'user', -- 'user' or 'admin'
   created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
