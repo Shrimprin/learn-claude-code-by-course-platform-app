@@ -10,6 +10,7 @@ import {
   getNextVideoOrderIndex,
 } from "@/lib/admin/videos";
 import { extractYouTubeId } from "@/lib/youtube";
+import { requireAdmin } from "@/lib/admin/auth";
 
 function validateYouTubeUrl(url: string): void {
   if (!extractYouTubeId(url)) {
@@ -24,6 +25,7 @@ export async function createVideoAction(
   courseId: string,
   formData: FormData
 ) {
+  await requireAdmin();
   const title = formData.get("title") as string;
   const youtube_url = formData.get("youtube_url") as string;
   const durationStr = formData.get("duration") as string;
@@ -52,6 +54,7 @@ export async function updateVideoAction(
   courseId: string,
   formData: FormData
 ) {
+  await requireAdmin();
   const title = formData.get("title") as string;
   const youtube_url = formData.get("youtube_url") as string;
   const durationStr = formData.get("duration") as string;
@@ -78,6 +81,7 @@ export async function deleteVideoAction(
   sectionId: string,
   courseId: string
 ) {
+  await requireAdmin();
   await deleteVideo(id);
   revalidatePath(`/admin/courses/${courseId}/sections/${sectionId}/videos`);
   revalidatePath(`/course/${courseId}`);
@@ -88,6 +92,7 @@ export async function reorderVideosAction(
   courseId: string,
   orderedIds: { id: string; order_index: number }[]
 ) {
+  await requireAdmin();
   await reorderVideos(orderedIds);
   revalidatePath(`/admin/courses/${courseId}/sections/${sectionId}/videos`);
   revalidatePath(`/course/${courseId}`);

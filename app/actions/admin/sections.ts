@@ -9,8 +9,10 @@ import {
   reorderSections,
   getNextSectionOrderIndex,
 } from "@/lib/admin/sections";
+import { requireAdmin } from "@/lib/admin/auth";
 
 export async function createSectionAction(courseId: string, formData: FormData) {
+  await requireAdmin();
   const title = formData.get("title") as string;
   if (!title?.trim()) throw new Error("タイトルは必須です");
 
@@ -26,6 +28,7 @@ export async function updateSectionAction(
   courseId: string,
   formData: FormData
 ) {
+  await requireAdmin();
   const title = formData.get("title") as string;
   if (!title?.trim()) throw new Error("タイトルは必須です");
 
@@ -36,6 +39,7 @@ export async function updateSectionAction(
 }
 
 export async function deleteSectionAction(id: string, courseId: string) {
+  await requireAdmin();
   await deleteSection(id);
   revalidatePath(`/admin/courses/${courseId}/sections`);
   revalidatePath(`/course/${courseId}`);
@@ -45,6 +49,7 @@ export async function reorderSectionsAction(
   courseId: string,
   orderedIds: { id: string; order_index: number }[]
 ) {
+  await requireAdmin();
   await reorderSections(orderedIds);
   revalidatePath(`/admin/courses/${courseId}/sections`);
   revalidatePath(`/course/${courseId}`);

@@ -3,8 +3,10 @@
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { createCourse, updateCourse, deleteCourse } from "@/lib/admin/courses";
+import { requireAdmin } from "@/lib/admin/auth";
 
 export async function createCourseAction(formData: FormData) {
+  await requireAdmin();
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const thumbnail_url = formData.get("thumbnail_url") as string;
@@ -23,6 +25,7 @@ export async function createCourseAction(formData: FormData) {
 }
 
 export async function updateCourseAction(id: string, formData: FormData) {
+  await requireAdmin();
   const title = formData.get("title") as string;
   const description = formData.get("description") as string;
   const thumbnail_url = formData.get("thumbnail_url") as string;
@@ -41,6 +44,7 @@ export async function updateCourseAction(id: string, formData: FormData) {
 }
 
 export async function deleteCourseAction(id: string) {
+  await requireAdmin();
   await deleteCourse(id);
   revalidatePath("/admin/courses");
   revalidatePath("/");
