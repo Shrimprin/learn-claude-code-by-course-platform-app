@@ -3,37 +3,40 @@
 ## 概要
 
 App Router のルートグループを使った基本的なページ構造とレイアウトの整備。
+※ このプロジェクトは `src/` ディレクトリを使わず、ルート直下に `app/`・`components/`・`lib/`・`types/` を配置。
 
 ## Todo
 
 ### ディレクトリ構造の作成
 
-- [ ] `src/app/(auth)/` ルートグループ作成
-- [ ] `src/app/(user)/` ルートグループ作成
-- [ ] `src/app/admin/` ディレクトリ作成
-- [ ] `src/components/` ディレクトリ作成
-- [ ] `src/lib/` ディレクトリ作成
-- [ ] `src/types/` ディレクトリ作成
+- [x] `app/(auth)/` ルートグループ作成
+- [x] `app/(user)/` ルートグループ作成
+- [x] `app/admin/` ディレクトリ作成
+- [x] `components/` ディレクトリ作成
+- [x] `lib/` ディレクトリ作成
+- [x] `types/` ディレクトリ作成
 
 ### レイアウト
 
-- [ ] `src/app/layout.tsx` ルートレイアウトを整備（グローバルヘッダー等）
-- [ ] `src/app/(user)/layout.tsx` ユーザー向け共通レイアウトを作成
-- [ ] `src/app/(auth)/layout.tsx` 認証ページ用レイアウトを作成
-- [ ] `src/app/admin/layout.tsx` 管理画面用レイアウトを作成
+- [x] `app/layout.tsx` ルートレイアウト整備（グローバルヘッダー）
+- [x] `app/(user)/layout.tsx` ユーザー向け共通レイアウトを作成
+- [x] `app/(auth)/layout.tsx` 認証ページ用レイアウトを作成
+- [x] `app/admin/layout.tsx` 管理画面用レイアウト（サイドバー付き）を作成
 
 ### 共通コンポーネント
 
-- [ ] `src/components/Header.tsx` グローバルヘッダーを作成
-- [ ] `src/components/Footer.tsx` フッターを作成（必要に応じて）
+- [x] `components/Header.tsx` グローバルヘッダーを作成（チケット02）
+- [x] フッターは `app/page.tsx` 内にインライン実装
 
-### ページのスタブ作成（中身は後のチケットで実装）
+### ページのスタブ作成
 
-- [ ] `src/app/(user)/course/[id]/page.tsx`
-- [ ] `src/app/(user)/course/[id]/video/[videoId]/page.tsx`
-- [ ] `src/app/(user)/dashboard/page.tsx`
-- [ ] `src/app/(auth)/login/page.tsx`
-- [ ] `src/app/admin/page.tsx`
-- [ ] `src/app/admin/courses/page.tsx`
-- [ ] `src/app/admin/courses/[id]/page.tsx`
-- [ ] `src/app/admin/courses/[id]/sections/page.tsx`
+- [x] `app/(user)/course/[id]/page.tsx`
+- [x] `app/(user)/course/[id]/loading.tsx`
+- [x] `app/(user)/course/[id]/error.tsx`
+- [x] `app/(user)/course/[id]/video/[videoId]/page.tsx`
+- [x] `app/(user)/dashboard/page.tsx`
+- [x] `app/(auth)/login/page.tsx`（チケット02で実装済み）
+- [x] `app/admin/page.tsx`
+- [x] `app/admin/courses/page.tsx`
+- [x] `app/admin/courses/[id]/page.tsx`
+- [x] `app/admin/courses/[id]/sections/page.tsx`
