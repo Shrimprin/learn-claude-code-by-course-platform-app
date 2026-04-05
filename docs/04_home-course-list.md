@@ -8,23 +8,23 @@
 
 ### データ取得
 
-- [ ] `src/lib/courses.ts` に `getCourses()` 関数を作成（Supabase から全講座を取得）
+- [x] `lib/courses.ts` に `getCourses()` 関数を作成（Supabase から全講座を取得）
 
 ### コンポーネント
 
-- [ ] `src/components/CourseCard.tsx` 講座カードコンポーネントを作成
-  - [ ] サムネイル画像の表示（`next/image` 使用）
-  - [ ] タイトル・概要の表示
-  - [ ] 講座詳細ページへのリンク
+- [x] `components/CourseCard.tsx` 講座カードコンポーネントを作成
+  - [x] サムネイル画像の表示（`next/image` 使用）
+  - [x] タイトル・概要の表示
+  - [x] 講座詳細ページへのリンク
 
 ### ページ
 
-- [ ] `src/app/page.tsx` をホームページとして実装（Server Component）
-  - [ ] `getCourses()` でデータ取得
-  - [ ] 講座カードの一覧表示
-  - [ ] 講座が0件の場合の空状態表示
+- [x] `app/page.tsx` をホームページとして実装（Server Component）
+  - [x] `getCourses()` でデータ取得
+  - [x] 講座カードの一覧表示
+  - [x] 講座が0件の場合の空状態表示
 
 ### UI
 
-- [ ] ページタイトル・ヒーローセクションのデザイン
-- [ ] レスポンシブ対応のグリッドレイアウト
+- [x] ページタイトル・ヒーローセクションのデザイン
+- [x] レスポンシブ対応のグリッドレイアウト（sm:2列 / lg:3列）
