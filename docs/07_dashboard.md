@@ -8,20 +8,21 @@
 
 ### データ取得
 
-- [ ] `src/lib/dashboard.ts` に `getUserEnrolledCourses(userId)` 関数を作成
-  - [ ] `user_progress` から受講したことがあるコースを集計して取得
-- [ ] 各コースの進捗率を計算する関数を実装
+- [x] `lib/dashboard.ts` に `getUserEnrolledCourses(userId)` 関数を作成
+  - [x] `user_progress` から受講したことがあるコースを集計して取得
+- [x] 各コースの進捗率を `calcProgress()` で算出
 
 ### コンポーネント
 
-- [ ] `src/components/Dashboard/EnrolledCourseCard.tsx` 受講中講座カードを作成
-  - [ ] 講座サムネイル・タイトルを表示
-  - [ ] 進捗率バーを表示
-  - [ ] 「続きを見る」リンク（最後に視聴した動画へ）
+- [x] `components/Dashboard/EnrolledCourseCard.tsx` 受講中講座カードを作成
+  - [x] 講座サムネイル・タイトルを表示
+  - [x] 進捗率バーを表示
+  - [x] 「続きを見る」リンク（最後に視聴した動画へ）
 
 ### ページ
 
-- [ ] `src/app/(user)/dashboard/page.tsx` を実装（Server Component）
-  - [ ] 未認証の場合はログインページにリダイレクト
-  - [ ] 受講講座が0件の場合の空状態表示（講座一覧へのリンク）
-- [ ] `src/app/(user)/dashboard/loading.tsx` を作成
+- [x] `app/(user)/dashboard/page.tsx` を実装（Server Component）
+  - [x] 未認証の場合はログインページにリダイレクト
+  - [x] 統計カード（受講中講座数・完了動画数・平均進捗率）
+  - [x] 受講講座が0件の場合の空状態表示（講座一覧へのリンク）
+- [x] `app/(user)/dashboard/loading.tsx` を作成
