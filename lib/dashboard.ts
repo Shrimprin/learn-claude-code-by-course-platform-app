@@ -50,21 +50,23 @@ export async function getUserEnrolledCourses(
     if (!entry.lastVideoId) entry.lastVideoId = p.video_id!;
   }
 
-  // 各コースの全動画数を取得して進捗率を算出
+  // 全コースの動画数を1クエリで取得
+  const courseIds = Array.from(courseMap.keys());
+  const { data: sectionsData } = await supabase
+    .from("sections")
+    .select("course_id, videos(id)")
+    .in("course_id", courseIds);
+
+  const totalVideosMap = new Map<string, number>();
+  for (const section of sectionsData ?? []) {
+    const courseId = section.course_id as string;
+    const videoCount = (section.videos as { id: string }[]).length;
+    totalVideosMap.set(courseId, (totalVideosMap.get(courseId) ?? 0) + videoCount);
+  }
+
   const results: EnrolledCourse[] = [];
   for (const [courseId, entry] of courseMap) {
-    const { count } = await supabase
-      .from("videos")
-      .select("id", { count: "exact", head: true })
-      .eq("section_id", supabase.from("sections").select("id").eq("course_id", courseId) as unknown as string);
-
-    // 簡易集計: sections → videos の件数
-    const { data: videos } = await supabase
-      .from("sections")
-      .select("videos(id)")
-      .eq("course_id", courseId);
-
-    const totalVideos = (videos ?? []).flatMap((s: any) => s.videos).length;
+    const totalVideos = totalVideosMap.get(courseId) ?? 0;
     const completedCount = entry.completedVideoIds.size;
 
     results.push({
