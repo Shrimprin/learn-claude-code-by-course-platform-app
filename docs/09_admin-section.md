@@ -8,28 +8,29 @@
 
 ### データ操作
 
-- [ ] `src/lib/admin/sections.ts` に以下の関数を作成
-  - [ ] `getSectionsByCourse(courseId)` セクション一覧取得
-  - [ ] `createSection(courseId, data)` セクション作成
-  - [ ] `updateSection(id, data)` セクション更新
-  - [ ] `deleteSection(id)` セクション削除
-  - [ ] `reorderSections(courseId, orderedIds)` 並び替え
+- [x] `lib/admin/sections.ts` に以下の関数を作成
+  - [x] `getAdminSections(courseId)` セクション一覧取得
+  - [x] `createSection(courseId, data)` セクション作成
+  - [x] `updateSection(id, data)` セクション更新
+  - [x] `deleteSection(id)` セクション削除
+  - [x] `reorderSections(orderedIds)` 並び替え
 
 ### Server Actions
 
-- [ ] `src/app/actions/admin/sections.ts` に Server Actions を作成
-  - [ ] `createSectionAction(courseId, formData)`
-  - [ ] `updateSectionAction(id, formData)`
-  - [ ] `deleteSectionAction(id)`
-  - [ ] `reorderSectionsAction(courseId, orderedIds)`
+- [x] `app/actions/admin/sections.ts` に Server Actions を作成
+  - [x] `createSectionAction(courseId, formData)`
+  - [x] `updateSectionAction(id, courseId, formData)`
+  - [x] `deleteSectionAction(id, courseId)`
+  - [x] `reorderSectionsAction(courseId, orderedIds)`
 
 ### コンポーネント
 
-- [ ] `src/components/Admin/SectionForm.tsx` セクション作成・編集フォームを作成
-  - [ ] タイトル入力
-- [ ] `src/components/Admin/SectionList.tsx` ドラッグ&ドロップで並び替え可能なリストを作成（Client Component）
-  - [ ] 各セクションに動画管理ページへのリンク
+- [x] `components/Admin/SectionList.tsx` ドラッグ&ドロップで並び替え可能なリストを作成（Client Component）
+  - [x] 各セクションに動画管理ページへのリンク
+  - [x] 削除ボタン（確認ダイアログ付き）
 
 ### ページ
 
-- [ ] `src/app/admin/courses/[id]/sections/page.tsx` セクション管理ページを実装
+- [x] `app/admin/courses/[id]/sections/page.tsx` セクション管理ページを実装
+  - [x] セクション一覧（ドラッグ並び替え）
+  - [x] インラインの新規追加フォーム
