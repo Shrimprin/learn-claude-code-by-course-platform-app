@@ -1,3 +1,4 @@
+import { cache } from "react";
 import { createClient } from "@/lib/supabase/server";
 import type { Tables } from "@/types/database";
 
@@ -14,7 +15,7 @@ export async function getCourses(): Promise<Course[]> {
   return data ?? [];
 }
 
-export async function getCourseById(id: string): Promise<Course | null> {
+export const getCourseById = cache(async (id: string): Promise<Course | null> => {
   const supabase = await createClient();
   const { data, error } = await supabase
     .from("courses")
@@ -24,4 +25,4 @@ export async function getCourseById(id: string): Promise<Course | null> {
 
   if (error) return null;
   return data;
-}
+});
